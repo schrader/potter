@@ -1,0 +1,70 @@
+de:
+  sunday: "Sonntag"
+  monday: "Montag"
+  tuesday: "Dienstag"
+  thursday: "Donnerstag"
+  friday: "Freitag"
+  saturaday: "Samstag"
+      
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: etwa einer Stunde
+        other: etwa %{count} Stunden
+      about_x_months:
+        one: etwa einem Monat
+        other: etwa %{count} Monate
+      about_x_years:
+        one: etwa einem Jahr
+        other: etwa %{count} Jahre
+      almost_x_years:
+        one: fast einem Jahr
+        other: fast %{count} Jahren
+      half_a_minute: vor einer halben Minute
+      less_than_x_minutes:
+        one: weniger als einer Minute
+        other: weniger als %{count} Minuten
+      less_than_x_seconds:
+        one: weniger als einer Sekunde
+        other: weniger als %{count} Sekunden
+      over_x_years:
+        one: mehr als einem Jahr
+        other: mehr als %{count} Jahren
+      x_days:
+        one: ein Tag
+        other: ! '%{count} Tage'
+      x_minutes:
+        one: eine Minute
+        other: ! '%{count} Minuten'
+      x_months:
+        one: ein Monat
+        other: ! '%{count} Monate'
+      x_seconds:
+        one: eine Sekunde
+        other: ! '%{count} Sekunden'
+  activerecord:
+    models:
+      user: "Benutzer"
+      pot: "Pott"
+      link: "Link"
+      subscription: "Abo"
+      invitation: "Einladung"
+    attributes:
+      user:
+        name: "Name"
+        email: "Email"
+        password: "Passwort"
+      link:
+        name: "Name"
+        description: "Beschreibung"
+        url: "URL"
+      pot:
+        name: "Name"
+        delivery_day: "Zustelltag"
+        delivery_hour: "Zustellstunde"
+        
+  pots:
+    show:
+      people:
+        one: "Person"
+        other: "%{count} Personen"

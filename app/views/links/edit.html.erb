@@ -1,0 +1,7 @@
+<% content_for :breadcrump do %>
+  <% breadcrump(link_to("Potts", pots_path), link_to("„" + @pot.name + "“", pot_path(@pot)),"Link „" + @link.name + "“", "bearbeiten") %>
+<% end %>
+
+<h1>Link bearbeiten</h1>
+
+<%= render 'form' %>

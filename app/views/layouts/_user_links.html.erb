@@ -1,0 +1,19 @@
+<!-- <select value="X-Men" class="span2 user_links" tabindex="1" name="herolist">
+ <option value="0" selected="selected"><%= current_user.name %></option>
+ <option value="1">Profil</option>
+ <option value="2">Logout</option>
+</select> -->
+
+<%= link_to raw('<span class="fui-man-24"></span> ' + current_user.name), "#", class: "user_links_toggle btn btn-primary" %>
+
+<div class="share mrl user_links">
+ <ul>
+   <li>
+     <%= link_to "Profil", user_registration_path %>
+   </li>
+   <li>
+     <%= link_to "Lorem", "#" %>
+   </li>
+ </ul>
+ <%= link_to "Logout", destroy_user_session_path, class: "btn btn-block btn-primary btn-large" %>
+</div> <!-- /share -->

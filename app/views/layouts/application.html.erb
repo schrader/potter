@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Potter</title>
+    <%= stylesheet_link_tag    "bootstrap_and_overrides", media: "all", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag    "main", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <div class="navbar navbar-inverse">
+            <div class="navbar-inner">
+              <div class="container">
+                <div class="row">
+                  <div class="span8">
+                    <div class="nav-collapse collapse">
+                      <ul class="nav">
+                        <li>
+                          <%= link_to "Home", activities_path %>
+                        </li>
+                        <li>
+                          <%= link_to "Potts", pots_path %>
+                        </li>
+                      </ul>
+                    </div><!--/.nav-collapse -->
+                  </div>
+                  <div class="span4 user_links_container">
+                    <%= render :partial => 'layouts/user_links' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <ul class="breadcrumb">
+        <%= yield :breadcrump %>
+      </ul>
+      
+      <div id="flash">
+        <% flash.each do |key, value| %>
+          <div class="flash alert <%= key %>">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <%= value %>
+          </div>
+        <% end %>
+      </div>
+      
+      
+      <%= yield %>
+    </div>
+  </body>
+</html>

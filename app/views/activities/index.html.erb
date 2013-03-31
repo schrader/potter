@@ -1,0 +1,27 @@
+<% content_for :breadcrump do %>
+  <%= breadcrump("Home") %>
+<% end %>
+
+
+<header>
+  <h1>Aktivitäten</h1>
+</header>
+
+<div class="activities">
+  <% if @activities.any? %>
+    <% @activities.each do |activity| %>
+      <div class="activity <%= activity.trackable_type.downcase %>">
+        <div class="time">
+          vor <%= time_ago_in_words activity.created_at %>
+        </div>
+        <div class="text">
+          <%= activity.owner.name if activity.owner %>
+          <%= begin; render_activity activity ; rescue; '-' end %>
+
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>Hier ist ja noch nix passiert! Los, lege <%= link_to "einen neuen Pott an", new_pot_path %>!</p>
+  <% end %>
+</div>

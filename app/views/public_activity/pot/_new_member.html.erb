@@ -1,0 +1,5 @@
+<% if activity.trackable %>
+ist dem Pott <%= link_to activity.trackable.name, activity.trackable %> beigetreten
+<% else %>
+ist einem Pott beigetreten, der aber schon wieder gelöscht worden ist
+<% end %>

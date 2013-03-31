@@ -1,0 +1,6 @@
+<% content_for :breadcrump do %>
+  <%= breadcrump(link_to("Potts", pots_path), link_to("„" + @pot.name + "“", pot_path(@pot)), "Einstellungen") %>
+<% end %>
+<h1>Einstellungen von „<%= @pot.name %>“</h1>
+
+<%= render 'form' %>

@@ -1,0 +1,11 @@
+<%= simple_form_for(@invitation) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :email %>
+  
+  <div class="control-group">
+    <div class="controls">
+      <%= f.button :submit %>
+    </div>
+  </div>
+<% end %>

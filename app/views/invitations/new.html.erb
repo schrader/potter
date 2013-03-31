@@ -1,0 +1,17 @@
+<h1>Einladung senden</h1>
+
+<p class="lead">
+  Hier kannst du neue Leute für den Pott „<%= current_pot.name %>“ einladen!
+</p>
+
+<%= simple_form_for([current_pot, @invitation]) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :email %>
+  
+  <div class="control-group">
+    <div class="controls">
+      <%= f.button :submit %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,5 @@
+<% if activity.trackable %>
+hat den Pott „<%= link_to activity.trackable.name, activity.trackable %>“ angelegt
+<% else %>
+hat einen Pott angelegt, der aber schon wieder gelöscht worden ist
+<% end %>

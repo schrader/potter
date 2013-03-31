@@ -1,0 +1,23 @@
+<%= simple_form_for(@pot) do |f| %>
+  <% if @pot.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pot.errors.count, "error") %> prohibited this pot from being saved:</h2>
+
+      <ul>
+      <% @pot.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.input :name, input_html: {class: "span3"} %>
+  <%= f.input :delivery_day, collection: Pot::WEEKDAYS, input_html: {class: "span3"}  %>
+  <%= f.input :delivery_hour, collection: (1..24).map {|h| [h.to_s + ":00 Uhr",h]}, input_html: {class: "span3"} %>
+
+  <div class="control-group">
+    <div class="controls">
+        <%= f.button :submit, class: "span3" %>
+    </div>
+  </div>
+<% end %>
