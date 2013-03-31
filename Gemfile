@@ -57,10 +57,12 @@ gem 'chronic'
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano', group: :development
+gem 'capistrano', group: :development
+
+gem 'capistrano-unicorn'
 
 # To use debugger
 # gem 'debugger'
