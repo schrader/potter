@@ -10,6 +10,8 @@ set :use_sudo, false
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
+server "monoceros.sophisticates.de:2222", :web, :app, :db, primary: true
+
 ## scm settings ##
 set :scm, :git
 set :branch, "master"
@@ -81,4 +83,4 @@ namespace :deploy do
   end
 end
 
-after 'deploy:update_code', 'deploy:link_database_config'
+# after 'deploy:update_code', 'deploy:link_database_config'

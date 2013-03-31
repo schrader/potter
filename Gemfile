@@ -60,9 +60,11 @@ gem 'chronic'
 gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano', group: :development
-
-gem 'capistrano-unicorn'
+group :development do
+  gem 'capistrano'
+  gem 'capistrano-unicorn'
+  gem 'rvm-capistrano'
+end
 
 # To use debugger
 # gem 'debugger'
