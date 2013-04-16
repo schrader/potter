@@ -1,17 +1,18 @@
-body {
+
+body#sign_in {
   background:#1abc9c;
   
-}
 
-.login-screen {
-  margin:0 auto;
-  padding:0;
-  width:359px;
-  color:#2C3E50;
-}
+	.login-screen {
+	  margin:0 auto;
+	  padding:0;
+	  width:359px;
+	  color:#2C3E50;
+	}
 
-.login-icon {
-  margin-left:-130px;
-  top:auto;
-  left:auto;
+	.login-icon {
+	  margin-left:-130px;
+	  top:auto;
+	  left:auto;
+	}
 }
