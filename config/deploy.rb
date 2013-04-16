@@ -53,20 +53,25 @@ namespace :deploy do
   #   run "ln -fs #{shared_path}/config/database.yml #{latest_release}/config/database.yml"
   # end
   
+  task :link_smtp_production_config do
+    logger.info "plugging in smtp production config"
+    run "ln -fs #{shared_path}/config/initializers/smtp_production.rb #{latest_release}/config/initializers/smtp_production.rb"
+  end
+  
   namespace :db do
     desc "migrates database"
     task :migrate do
-      run "cd #{current_path}; bundle exec rake db:migrate RAILS_ENV=staging"
+      run "cd #{current_path}; bundle exec rake db:migrate RAILS_ENV=production"
     end
 
     desc "setup database"
     task :setup do
-      run "cd #{current_path}; bundle exec rake db:setup RAILS_ENV=staging"
+      run "cd #{current_path}; bundle exec rake db:setup RAILS_ENV=production"
     end
     
     desc "populate database seeds"
     task :seed do
-      run "cd #{current_path}; bundle exec rake db:seed RAILS_ENV=staging"
+      run "cd #{current_path}; bundle exec rake db:seed RAILS_ENV=production"
     end
   end
   
@@ -83,4 +88,4 @@ namespace :deploy do
   end
 end
 
-# after 'deploy:update_code', 'deploy:link_database_config'
+after 'deploy:update_code', 'deploy:link_smtp_production_config'
