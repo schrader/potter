@@ -51,6 +51,11 @@ namespace :deploy do
   task :link_database_config do
     logger.info "plugging in database config"
     run "ln -fs #{shared_path}/config/database.yml #{latest_release}/config/database.yml"
+  end  
+
+  task :link_database do
+    logger.info "plugging in database"
+    run "ln -fs #{shared_path}/db/production.sqlite3 #{latest_release}/db/production.sqlite3"
   end
   
   task :link_smtp_production_config do
@@ -76,17 +81,18 @@ namespace :deploy do
   end
   
   namespace :assets do
-    task :precompile, :roles => :web, :except => { :no_release => true } do
-      deploy.link_database_config
-      from = source.next_revision(current_revision)
-      if capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ | wc -l").to_i > 0
-        run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
-      else
-        logger.info "Skipping asset pre-compilation because there were no asset changes"
-      end
-    end
+    # task :precompile, :roles => :web, :except => { :no_release => true } do
+    #   deploy.link_database_config
+    #   from = source.next_revision(current_revision)
+    #   if capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ | wc -l").to_i > 0
+    #     run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
+    #   else
+    #     logger.info "Skipping asset pre-compilation because there were no asset changes"
+    #   end
+    # end
   end
 end
 
 after 'deploy:update_code', 'deploy:link_database_config'
 after 'deploy:update_code', 'deploy:link_smtp_production_config'
+after 'deploy:update_code', 'deploy:link_database'
