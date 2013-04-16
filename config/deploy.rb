@@ -48,10 +48,10 @@ namespace :deploy do
     unicorn.reload
   end
   
-  # task :link_database_config do
-  #   logger.info "plugging in database config"
-  #   run "ln -fs #{shared_path}/config/database.yml #{latest_release}/config/database.yml"
-  # end
+  task :link_database_config do
+    logger.info "plugging in database config"
+    run "ln -fs #{shared_path}/config/database.yml #{latest_release}/config/database.yml"
+  end
   
   task :link_smtp_production_config do
     logger.info "plugging in smtp production config"
@@ -88,4 +88,5 @@ namespace :deploy do
   end
 end
 
+after 'deploy:update_code', 'deploy:link_database_config'
 after 'deploy:update_code', 'deploy:link_smtp_production_config'
