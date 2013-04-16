@@ -17,8 +17,8 @@ GIT
       railties (= 4.0.0beta1)
 
 GIT
-  remote: git@github.com:plataformatec/devise.git
-  revision: c6189696772925ae0c608fdd8d535f735e8e114e
+  remote: git@github.com:cschell/devise.git
+  revision: 78ed61b7b43619ad9a6f2930f57f70301f7606e3
   branch: rails4
   specs:
     devise (2.2.3)
