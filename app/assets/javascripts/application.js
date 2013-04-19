@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
-//= require twitter/bootstrap
+//= require bootstrap
 //= require jquery.turbolinks
 //= require turbolinks
 //= require custom_checkbox_and_radio
