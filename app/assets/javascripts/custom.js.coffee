@@ -1,4 +1,8 @@
 $ ->
+  $("a[rel=popover]").popover()
+  $(".tooltip").tooltip()
+  $("a[rel=tooltip]").tooltip()
+
   $("select").dropkick()
   
   
@@ -9,11 +13,12 @@ $ ->
   
   $(".user_links_toggle").click (event)->
     event.preventDefault()
-    $(".user_links").toggle()
-    $(this).focus()
-    
-  $(".user_links_toggle").blur ->
-    $(".user_links").hide()
+    $(".user_links").show()
+
+    $(document).click (e) ->
+      if (! $(e.target).closest('.user_links_container').length ) 
+        $('.user_links').hide()
+
   
   $("[title]").tooltip
     container: 'body'
