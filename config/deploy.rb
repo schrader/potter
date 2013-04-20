@@ -29,7 +29,11 @@ set :rails_env, :production
 require "bundler/capistrano" # That's it! Running cap deploy will now automatically run bundle install on the remote server with deployment-friendly options. A list of options that can be changed is available in the help for the cap task. To see it, run cap -e bundle:install.
 require 'capistrano-unicorn'
 
+set :whenever_command, "bundle exec whenever"
+require "whenever/capistrano"
 # require "bugsnag/capistrano"
+
+
 
 namespace :deploy do
   task :start do
