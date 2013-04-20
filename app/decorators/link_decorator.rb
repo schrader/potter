@@ -3,7 +3,7 @@ class LinkDecorator < Draper::Decorator
   decorates_association :pot
   
   def hottiness
-    ["gut", "nicer Shit", "Lesebefehl!"][source.hottiness - 1]
+    ["gut", "besser", "Lesebefehl!"][source.hottiness - 1]
   end
 
   def hottiness_label
