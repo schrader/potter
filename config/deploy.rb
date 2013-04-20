@@ -1,6 +1,7 @@
 ## main settings ##
 `ssh-add` # needed for forward_agent to work properly
 
+set :application, "potter"
 set :user, 'deploy'
 set :port, '2222'
 set(:deploy_to) { "/home/deploy/ruby_on_rails/potter.sophisticates.de" }
