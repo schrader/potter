@@ -6,16 +6,27 @@
 <div class="row with-space">  
   <% @pots.each do |pot| %>
     <div class="span3">
-      <div class="tile">
+      <div class="tile pots">
+        <%= random_illustration %>
         <h3><%= pot.name %></h3>
         <small class="subheading">erstellt von <%= pot.users.first.name %></small>
         <%= link_to "Anzeigen", pot, class: "btn btn-primary btn-large btn-block" %>
       </div>
     </div>
   <% end %>
+  <div class="span3">
+    <div class="tile new_pot pots">
+      <div class="new_pot_plus">
+        <span class="fui-plus-24"></span>
+      </div>
+      <h3>Neuer Pot</h3>
+      <small class="subheading">Für dich und deine Freunde</small>
+
+      <%= link_to 'Erstellen', new_pot_path, class: "btn btn-large btn-block btn-primary" %>
+    </div>
+  </div>
 </div>
 <div class="row with-space">
   <div class="span3">
-    <%= link_to 'Neuer Pot', new_pot_path, class: "btn btn-large btn-block btn-primary" %>
   </div>
 </div>
