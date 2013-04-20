@@ -1,5 +1,5 @@
 class PotMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "hedwig@sophisticates.de"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
