@@ -64,5 +64,7 @@ group :development do
   gem 'rvm-capistrano'
 end
 
+gem 'whenever', :require => false
+
 # To use debugger
 # gem 'debugger'
