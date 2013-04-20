@@ -117,6 +117,9 @@ small.subheading {
 
 .newlink {
   display:none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
 }
 
 .palette-success, .palette-info {
