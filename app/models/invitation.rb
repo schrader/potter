@@ -10,7 +10,7 @@ class Invitation < ActiveRecord::Base
   def accept!(invited_user)
     @invited_user = invited_user
     if pot.users.include?(user)
-      if add_user_to_pot(invited_user)
+      if add_user_to_pot
         track_subscription
         destroy
         return true
