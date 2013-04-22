@@ -1,34 +1,27 @@
 
 
-    <div class="login-icon">
-      <img src="/illustrations/colors.png" alt="Welcome to Mail App">
-      <h4>Welcome to <small>Potter</small></h4>
+<div class="login-icon">
+  <img src="/illustrations/colors.png" alt="Welcome to Mail App">
+  <h4>Welcome to <small>Potter</small></h4>
+</div>
+<div class="login-form">
+  <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), defaults: {wrapper: :login, input_html: {class: "login-field"}}) do |f| %>
+
+    <div class="control-group">
+      <%= f.input_field :email, :required => false, :autofocus => true, placeholder: "deine Email" %>
+      <%= f.label :email, raw("&nbsp;"), class: "login-field-icon fui-man-16" %>
     </div>
-    <div class="login-form">
-      <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), defaults: {wrapper: :login, input_html: {class: "login-field"}}) do |f| %>
 
-        <div class="control-group">
-          <%= f.input_field :email, :required => false, :autofocus => true, placeholder: "your email" %>
-          <%= f.label :email, raw("&nbsp;"), class: "login-field-icon fui-man-16" %>
-        </div>
-
-        <div class="control-group">
-          <%= f.input_field :password, :required => false, placeholder: "*****" %>
-          <%= f.label :password, raw("&nbsp;"), class: "login-field-icon fui-lock-16" %>
-        </div>
-        
-
-        <!-- <div class="control-group">
-          <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
-        </div> -->
-        <%= f.button :submit, "einloggen", class: "btn btn-primary btn-large btn-block" %>
-      <% end %>
-      <a class="login-link" href="#">Lost your password?</a>
-
-
-
-      <%# render "devise/shared/links" %>
+    <div class="control-group">
+      <%= f.input_field :password, :required => false, placeholder: "*****" %>
+      <%= f.label :password, raw("&nbsp;"), class: "login-field-icon fui-lock-16" %>
     </div>
+
+
+    <%= f.button :submit, "einloggen", class: "btn btn-primary btn-large btn-block" %>
+  <% end %>
+
+  <div class="login-links">
+    <%= link_to "Registrieren", new_user_registration_path %> &middot; <%= link_to "Passwort vergessen?", new_user_password_path %>
   </div>
 </div>
-

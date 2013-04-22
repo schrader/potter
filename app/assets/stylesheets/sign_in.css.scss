@@ -15,4 +15,12 @@ body#sign_in {
 	  top:auto;
 	  left:auto;
 	}
+
+	.login-links {
+		width: 100%;
+		text-align:center;
+		* {
+			color: #999;
+		}
+	}
 }

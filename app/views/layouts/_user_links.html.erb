@@ -9,11 +9,8 @@
 <div class="share mrl user_links">
  <ul>
    <li>
-     <%= link_to "Profil", user_registration_path %>
-   </li>
-   <li>
-     <%= link_to "Lorem", "#" %>
+     <%= link_to "Profil", user_registration_path%>
    </li>
  </ul>
- <%= link_to "Logout", destroy_user_session_path, class: "btn btn-block btn-primary btn-large" %>
+ <%= link_to "Logout", destroy_user_session_path, class: "btn btn-block btn-primary btn-large", method: :delete  %>
 </div> <!-- /share -->
