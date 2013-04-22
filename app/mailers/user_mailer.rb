@@ -8,7 +8,7 @@ class UserMailer < ActionMailer::Base
   #
   def invite(invitation)
     @invitation = invitation
-    @link = accept_invitations_url(@invitation.pot, token: @invitation.token)
+    @link = accept_invitations_url(token: @invitation.token)
     mail to: @invitation.email, subject: "Einladung zu einem gemeinsamen Pott pure awesomeness"
   end
 end
