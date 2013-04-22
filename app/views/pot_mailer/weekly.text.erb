@@ -2,12 +2,18 @@ Hallo <%= @username %>,
 
 diese Woche haben sich folgende Links angesammelt:
 
-  <% @links.each do |link| %>
-  <%= link.name %>
-    <%= link.description %>
-    <%= link.url %>
-  
+<%  @links_grouped_by_hottiness.each_pair do |hottiness, links| %>
+
+  <%= ['Interessant', 'Sollte man gelesen haben', 'Lesebefehl!'][hottiness-1] %>
+  <%= "=" * ['Interessant', 'Sollte man gelesen haben', 'Lesebefehl!'][hottiness-1].length %>
+
+  <% links.each do |link| %>
+    <%= link.name %> (von <%= link.user.name %>)
+        → <%= link.url %>
+        <%= link.description.present? ? "„#{link.description}“" : '' %>
+
   <% end %>
-  
-  
+
+
+<% end %>  
 Bis nächste Woche!

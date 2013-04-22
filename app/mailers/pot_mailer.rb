@@ -8,7 +8,7 @@ class PotMailer < ActionMailer::Base
   #
   def weekly(pot, user)
     @potname = pot.name
-    @links = pot.links
+    @links_grouped_by_hottiness = Link.all.order("hottiness DESC").group_by(&:hottiness)
     @username = user.name
 
     mail to: user.email, subject: "#{@potname}: #{l(Date.today, format: :short)}"
