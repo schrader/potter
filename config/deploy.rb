@@ -16,7 +16,7 @@ server "monoceros.sophisticates.de:2222", :web, :app, :db, primary: true
 ## scm settings ##
 set :scm, :git
 set :branch, "master"
-set :repository,  "git@bitbucket.org:cschell/potter.git"
+set :repository,  "git@github.com:Sophisticates/potter.git"
 # set :scm_verbose, true
 
 
