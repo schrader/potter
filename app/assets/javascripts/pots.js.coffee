@@ -1,7 +1,14 @@
 $ ->
-  $(".newlink").show()
-  $(".new_link_form").hide()
+  toggleContainerLinkBindings($(".newlink"), $(".new_link_form"))
+  toggleContainerLinkBindings($(".show_pot_links"), $("#pot_links"))
+
+
+
+toggleContainerLinkBindings = (link, container) ->
+  link.show()
+  container.hide()
   
-  $(".newlink").click ->
-    $(".newlink").hide()
-    $(".new_link_form").slideDown("slow")
+  link.click (event) ->
+    link.hide()
+    container.slideDown("slow")
+    event.preventDefault()

@@ -41,7 +41,7 @@
   <section>
     <div class="row">
       <div class="span12">
-        <table class="table table-bordered">
+        <table class="table table-bordered" id="pot_links">
           <thead>
             <tr>
               <th class="link_sent"></th>
@@ -69,6 +69,9 @@
             <% end %>
           </tbody>
         </table>
+      </div>
+      <div class="span12">
+        <%= link_to raw('bisher gesammelte Links anzeigen'), "#", class: "btn btn-large btn-block btn-danger show_pot_links", title: "Achtung! Du nimmst doch den ganzen Spaß raus, wenn du spickst!"%>
       </div>
     </div>
   </section>
