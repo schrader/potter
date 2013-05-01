@@ -14,8 +14,6 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require bootstrap
-//= require jquery.turbolinks
-//= require turbolinks
 //= require custom_checkbox_and_radio
 //= require custom_radio
 //= require jquery.dropkick-1.0.0

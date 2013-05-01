@@ -27,8 +27,8 @@ gem 'jquery-rails'
 gem 'simple_form', git: 'git://github.com/plataformatec/simple_form.git'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-gem 'jquery-turbolinks'
+# gem 'turbolinks'
+# gem 'jquery-turbolinks'
 
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
