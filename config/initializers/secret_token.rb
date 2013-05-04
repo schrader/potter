@@ -10,4 +10,3 @@
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
 Potter::Application.config.secret_key_base = '6def17039bd089b487c33a696c4a3cb5648b9a15395799825cf1d8ed6923ce71870643085c9b259a80a891d520927e349e7081675c148a3c4053462fbe44218d'
-Potter::Application.configure
