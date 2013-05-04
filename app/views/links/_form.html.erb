@@ -23,7 +23,7 @@
 
   <div class="control-group">
     <div class="controls">
-      <% if params[:return_to].present? %>
+      <% if params[:url].present? %>
         <%= f.submit "Link erstellen und zu #{params[:return_to].split('/')[2]} zurückkehren", class: "btn btn-large btn-primary" %>
       <% else %>
         <%= f.button :submit, "Link erstellen" %>
