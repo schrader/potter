@@ -35,7 +35,7 @@
           </div>
         <% end %>
       </div>
-      <%= link_to raw('neuer Link'), "#", class: "btn btn-large span12 btn-info newlink" %>
+      <%= link_to "neuer Link für #{@pot.name}", "javascript:" + u(render(partial: "bookmarklet", formats: :js)), class: "btn btn-large span12 btn-info newlink", title: "Ziehe diesen Button einfach in deine Lesezeichenleiste, um jederzeit schnell und bequem neue Links zu diesem Pott hinzuzufügen!" %>
     </div>
   </section>
   <section>
