@@ -8,8 +8,6 @@ gem 'sqlite3'
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 4.0.0.beta1'
-  gem 'coffee-rails', '~> 4.0.0.beta1'
-
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', platforms: :ruby
   gem 'uglifier', '>= 1.0.3'
@@ -17,6 +15,8 @@ group :assets do
   gem 'neat'
   gem 'bootstrap-sass', '>= 2.3.1.0'
 end
+
+gem 'coffee-rails', '~> 4.0.0.beta1'
 
 gem "draper"
 
