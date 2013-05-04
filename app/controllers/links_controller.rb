@@ -15,7 +15,7 @@ class LinksController < ApplicationController
 
   # GET /links/new
   def new
-    @link = Link.new
+    @link = Link.new(name: params[:name], url: params[:url])
   end
 
   # GET /links/1/edit
@@ -32,7 +32,14 @@ class LinksController < ApplicationController
     respond_to do |format|
       if @link.save
         @link.create_activity :create, owner: current_user
-        format.html { redirect_to @link.pot, notice: 'Link wurde hinzugefügt.' }
+
+        format.html do
+          if params[:return_to].present?
+            redirect_to params[:return_to]
+          else
+            redirect_to @link.pot, notice: 'Link wurde hinzugefügt.'
+          end
+        end
         format.json { render action: 'show', status: :created, location: @link }
       else
         format.html { render action: 'pots/new' }

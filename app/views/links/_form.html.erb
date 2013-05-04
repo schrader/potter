@@ -19,9 +19,15 @@
   
   <%= f.input :hottiness, collection: {"gut" => 1, "nicer Shit!" => 2, "Lesebefehl!" => 3}, input_html: {class: "span3"}, include_blank: false %>
   
+  <%= hidden_field_tag :return_to, params[:url] if params[:url].present? %>
+
   <div class="control-group">
     <div class="controls">
-      <%= f.button :submit %>
+      <% if params[:return_to].present? %>
+        <%= f.submit "Link erstellen und zu #{params[:return_to].split('/')[2]} zurückkehren", class: "btn btn-large btn-primary" %>
+      <% else %>
+        <%= f.button :submit, "Link erstellen" %>
+      <% end %>
     </div>
   </div>
 <% end %>
