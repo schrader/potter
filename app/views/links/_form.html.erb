@@ -26,7 +26,7 @@
       <% if params[:url].present? %>
         <%= f.submit "Link erstellen und zu #{params[:url].split('/')[2]} zurückkehren", class: "btn btn-large btn-primary" %>
       <% else %>
-        <%= f.button :submit, "Link erstellen" %>
+        <%= f.button :submit %>
       <% end %>
     </div>
   </div>
