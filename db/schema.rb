@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130331100206) do
+ActiveRecord::Schema.define(version: 20130329104006) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -43,12 +46,12 @@ ActiveRecord::Schema.define(version: 20130331100206) do
     t.string   "url",                     null: false
     t.integer  "user_id"
     t.integer  "pot_id"
+    t.datetime "sent_at"
     t.text     "description"
     t.string   "category"
+    t.integer  "hottiness",   default: 2
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "hottiness",   default: 2
-    t.datetime "sent_at"
   end
 
   add_index "links", ["pot_id"], name: "index_links_on_pot_id"
