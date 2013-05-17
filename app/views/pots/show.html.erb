@@ -41,6 +41,7 @@
   <section>
     <div class="row">
       <div class="span12">
+        <h2>Links aus vorherigen Wochen</h2>
         <table class="table table-bordered" id="pot_links">
           <thead>
             <tr>
@@ -53,25 +54,9 @@
             </tr>
           </thead>
           <tbody>
-            <% @pot.links.each do |link| %>
-              <tr id="link_<%= link.id %>">
-                <% if link.sent? %>
-                  <td title="<%= link.sent_at %>" class="link_sent palette-success"><span class="fui-checkmark-24"></span></td>
-                <% else %>
-                  <td title="<%= @pot.next_delivery_date %>" class="link_sent palette-info"><span class="fui-time-24"></span></td>
-                <% end %>
-                <td><%= link_to link.name, link.url, target: "_blank" %></td>
-                <td><%= link.user.name %></td>
-                <td><%= l link.created_at, format: :short %></td>
-                <td><span class="label label-<%= link.hottiness_label %>"><%= link.hottiness %></span></td>
-                <td><%= link_to "bearbeiten", edit_pot_link_path(@pot, link) %></td>
-              </tr>
-            <% end %>
+            <%= render partial: 'link', collection:  @pot.old_links %>
           </tbody>
         </table>
-      </div>
-      <div class="span12">
-        <%= link_to raw('bisher gesammelte Links anzeigen'), "#", class: "btn btn-large btn-block btn-danger show_pot_links", title: "Achtung! Du nimmst doch den ganzen Spaß raus, wenn du spickst!"%>
       </div>
     </div>
   </section>

@@ -1,5 +1,6 @@
 class PotDecorator < Draper::Decorator
   decorates_association :links
+  decorates_association :old_links
   delegate_all
 
   def delivery_hour

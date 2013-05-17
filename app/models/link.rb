@@ -10,9 +10,8 @@ class Link < ActiveRecord::Base
   validates :pot, presence: true
   validates :hottiness, inclusion: {in: HOTTINESSES}
   
-  
   def self.markoff
-    self.update_all(sent_at: DateTime.now)
+    self.update_all(sent_at: Time.zone.now)
   end
   
   def sent?
