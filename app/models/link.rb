@@ -6,6 +6,8 @@ class Link < ActiveRecord::Base
   belongs_to :pot
   belongs_to :user
   
+  scope :from_user, lambda {|user| where("user_id = ?", user.id)}
+
   validates :user, presence: true
   validates :pot, presence: true
   validates :hottiness, inclusion: {in: HOTTINESSES}

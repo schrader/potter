@@ -3,6 +3,7 @@
   
   has_many :links, -> {order created_at: :desc}
   has_many :old_links, -> {where("sent_at IS NOT ?", nil).order(created_at: :desc)}, class_name: "Link"
+  has_many :new_links, -> {where("sent_at IS ?", nil).order(created_at: :desc)}, class_name: "Link"
   has_many :subscriptions
   has_many :users, through: :subscriptions
   

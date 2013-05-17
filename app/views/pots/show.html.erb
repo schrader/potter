@@ -41,6 +41,36 @@
   <section>
     <div class="row">
       <div class="span12">
+        <h2>Deine Links für nächsten <%= t @pot.delivery_day %></h2>
+
+        <% if @pot.new_links.any? %>
+          <table class="table table-bordered" id="pot_links">
+            <thead>
+              <tr>
+                <th class="link_sent"></th>
+                <th>Link</th>
+                <th>Autor</th>
+                <th>Hinzugefügt am</th>
+                <th>Hottiness</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= render partial: 'link', collection:  @pot.new_links.from_user(current_user).decorate %>
+            </tbody>
+          </table>
+        <% else %>
+          <p>
+            Du hast diese Woche noch keine Links gesammelt!
+
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="row">
+      <div class="span12">
         <h2>Links aus vorherigen Wochen</h2>
         <table class="table table-bordered" id="pot_links">
           <thead>
