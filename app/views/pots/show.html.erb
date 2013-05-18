@@ -20,6 +20,7 @@
     <div class="row">
       <div class="span12">
         <%= simple_form_for [@pot, @link], html: {class: "well new_link_form"} do |f| %>
+          <h3>Neuen Link hinzufügen</h3>
           <%= f.input :name, placeholder: "Titel", input_html: {class: "span9"}  %>
           <%= f.input :url, placeholder: "example.com", input_html: {class: "span9"} %>
           <%= f.input :description, placeholder: "Lorem ipsum...", input_html: {class: "span9"}  %>

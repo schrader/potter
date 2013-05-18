@@ -10,4 +10,12 @@ module ApplicationHelper
     
     raw(lis.join + content_tag(:li, last_crump, class: "active"))
   end
+
+  def pot_nav_link(pot)
+    if (params[:pot_id] || params[:id]) == pot.id.to_s
+      return link_to pot.name, pot, class: "active"
+    else
+      return link_to pot.name, pot, class: "inactive"
+    end
+  end
 end

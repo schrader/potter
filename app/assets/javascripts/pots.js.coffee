@@ -1,5 +1,5 @@
 $ ->
-  toggleContainerLinkBindings($(".newlink"), $(".new_link_form"))
+#  toggleContainerLinkBindings($(".newlink"), $(".new_link_form"))
 #  toggleContainerLinkBindings($(".show_pot_links"), $("#pot_links"))
 
 

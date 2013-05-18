@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="row">
+      <nav class="row" id="mainnav">
         <div class="span12">
           <div class="navbar navbar-inverse">
             <div class="navbar-inner">
@@ -25,7 +25,7 @@
                           <%= link_to "Potts", pots_path %>
                         </li>
                       </ul>
-                    </div><!--/.nav-collapse -->
+                    </div>
                   </div>
                   <div class="span4 user_links_container">
                     <%= render :partial => 'layouts/user_links' %>
@@ -35,23 +35,37 @@
             </div>
           </div>
         </div>
+      </nav>
+
+      <nav class="container">
+        <ul id="pot_nav">
+          <% current_user.pots.each do |pot| %>
+            <li><%= pot_nav_link(pot) %></li>
+          <% end %>
+          <li><%= link_to raw('<i class="icon-plus"></i>'), new_pot_path, title: "lege einen neuen Pott an!" %></li>
+        </ul>
+      </nav>
+    </div>
+
+
+    <div class="fluid-container" id="main-content">
+      <div class="container">
+        <ul class="breadcrumb">
+          <%= yield :breadcrump %>
+        </ul>
+        
+        <div id="flash">
+          <% flash.each do |key, value| %>
+            <div class="flash alert <%= key %>">
+              <a href="#" class="close" data-dismiss="alert">&times;</a>
+              <%= value %>
+            </div>
+          <% end %>
+        </div>
+        
+        
+        <%= yield %>
       </div>
-      
-      <ul class="breadcrumb">
-        <%= yield :breadcrump %>
-      </ul>
-      
-      <div id="flash">
-        <% flash.each do |key, value| %>
-          <div class="flash alert <%= key %>">
-            <a href="#" class="close" data-dismiss="alert">&times;</a>
-            <%= value %>
-          </div>
-        <% end %>
-      </div>
-      
-      
-      <%= yield %>
     </div>
   </body>
 </html>
