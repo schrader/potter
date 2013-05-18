@@ -16,11 +16,6 @@
 </p>
 
 <section>
-  <header>
-    <h2>
-      Links
-    </h2>
-  </header>
   <section>
     <div class="row">
       <div class="span12">
@@ -60,9 +55,12 @@
             </tbody>
           </table>
         <% else %>
-          <p>
-            Du hast diese Woche noch keine Links gesammelt!
-
+          <p class="palette no_links palette-silver">
+            Du hast diese Woche noch keine Links gesammelt.
+          <% if @pot.new_links.from_others_than(current_user).any? %>
+              <br>
+              <strong>Halt dich ran, die anderen haben in dieser Woche schon <%= pluralize(@pot.new_links.from_others_than(current_user).count, "Link") %> gesammelt!</strong>
+          <% end %>
           </p>
         <% end %>
       </div>

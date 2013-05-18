@@ -7,6 +7,7 @@ class Link < ActiveRecord::Base
   belongs_to :user
   
   scope :from_user, lambda {|user| where("user_id = ?", user.id)}
+  scope :from_others_than, lambda {|user| where("user_id != ?", user.id)}
 
   validates :user, presence: true
   validates :pot, presence: true
