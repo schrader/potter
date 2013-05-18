@@ -1,6 +1,9 @@
-
 <% if activity.trackable %>
-hat den Link „<%= link_to activity.trackable.name, pot_path(activity.trackable.pot,anchor: "link_#{activity.trackable.id}") %>“ angelegt
+  <% if activity.trackable.sent? %>
+    hat den Link „<%= link_to activity.trackable.name, pot_path(activity.trackable.pot,anchor: "link_#{activity.trackable.id}") %>“ angelegt
+  <% else %>
+    hat einen Link in Pott <%= link_to activity.trackable.pot.name, pot_path(activity.trackable.pot,anchor: "link_#{activity.trackable.id}") %> angelegt
+  <% end %>
 <% else %>
 hat einen Link angelegt, der aber schon wieder gelöscht worden ist
 <% end %>
