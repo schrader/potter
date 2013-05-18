@@ -14,5 +14,5 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-
+/config/database.yml
 /config/initializers/smtp_production.rb
