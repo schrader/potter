@@ -36,15 +36,7 @@
           </div>
         </div>
       </nav>
-
-      <nav class="container">
-        <ul id="pot_nav">
-          <% current_user.pots.each do |pot| %>
-            <li><%= pot_nav_link(pot) %></li>
-          <% end %>
-          <li><%= link_to raw('<i class="icon-plus"></i>'), new_pot_path, title: "lege einen neuen Pott an!" %></li>
-        </ul>
-      </nav>
+      <%= render partial: "layouts/pot_nav" if controller.controller_name == "pots" && controller.action_name != "index" %>
     </div>
 
 
