@@ -11,8 +11,8 @@
   
   WEEKDAYS = %w[monday tuesday wednesday thursday friday saturday sunday].freeze
   
-  def markoff_links
-    links.markoff
+  def markoff_new_links
+    new_links.markoff
   end
   
   def next_delivery_date
