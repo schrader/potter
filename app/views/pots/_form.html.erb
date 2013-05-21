@@ -11,9 +11,9 @@
     </div>
   <% end %>
 
-  <%= f.input :name, input_html: {class: "span3"} %>
-  <%= f.input :delivery_day, collection: Pot::WEEKDAYS, input_html: {class: "span3"}  %>
-  <%= f.input :delivery_hour, collection: (1..24).map {|h| [h.to_s + ":00 Uhr",h]}, input_html: {class: "span3"} %>
+  <%= f.input :name, input_html: {class: "span5"} %>
+  <%= f.input :delivery_day, collection: Pot::WEEKDAYS, input_html: {class: "span5"}  %>
+  <%= f.input :delivery_hour, collection: (1..24).map {|h| [h.to_s + ":00 Uhr",h]}, input_html: {class: "span5"} %>
 
   <div class="control-group">
     <div class="controls">

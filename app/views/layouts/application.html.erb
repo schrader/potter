@@ -8,7 +8,7 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class="container">
+    <div class="container" id="header">
       <nav class="row" id="mainnav">
         <div class="span12">
           <div class="navbar navbar-inverse">
@@ -42,9 +42,9 @@
 
     <div class="fluid-container" id="main-content">
       <div class="container">
-        <ul class="breadcrumb">
-          <%= yield :breadcrump %>
-        </ul>
+        <div class="toplinks">
+          <%= yield :toplinks %>
+        </div>
         
         <div id="flash">
           <% flash.each do |key, value| %>

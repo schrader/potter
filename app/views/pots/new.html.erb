@@ -1,9 +1,5 @@
-<% content_for :breadcrump do %>
-  <%= breadcrump(link_to("Potts", pots_path), "neuer Pott") %>
+<% content_for :toplinks do %>
+  <%= link_to raw('&laquo; alle Potts'), pots_path %>
 <% end %>
-
 <h1>Neuer Pott</h1>
-
 <%= render 'form' %>
-
-<%= link_to raw('&laquo; alle Potts'), pots_path %>
