@@ -33,16 +33,26 @@
   }
 }
 
-.new_link_form {
-  h3 {
-    margin-left:43px;
-    margin-bottom:1em;
-  }
-}
+body {
+  .new_link_form {
+    header {
+      margin: 0 0 1em 43px !important;
 
-p.no_links {
-  margin-top:1em;
-  text-align:center;
-  text-transform: none;
-  line-height: 1.5em;
+      h3 {
+        display:inline;
+      }
+
+      .bookmarklet {
+        float:right;
+        margin:1em 1.5em;
+      }
+    }
+  }
+
+  p.no_links {
+    margin-top:1em;
+    text-align:center;
+    text-transform: none;
+    line-height: 1.5em;
+  }
 }

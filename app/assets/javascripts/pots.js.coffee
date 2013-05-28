@@ -3,7 +3,6 @@ $ ->
 #  toggleContainerLinkBindings($(".show_pot_links"), $("#pot_links"))
 
 
-
 toggleContainerLinkBindings = (link, container) ->
   link.show()
   container.hide()
