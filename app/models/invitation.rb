@@ -8,15 +8,15 @@ class Invitation < ActiveRecord::Base
   end
   
   def accept!(invited_user)
+    return false unless invited_user.is_a?(User) && pot.users.include?(issuer)
+
     @invited_user = invited_user
-    if @invited_user.is_a?(User) && pot.users.include?(issuer)
-      if add_user_to_pot
-        track_subscription
-        destroy
-        return true
-      end
+
+    add_user_to_pot do
+      track_subscription
+      destroy
     end
-    false
+    true
   end
 
   private
@@ -27,7 +27,9 @@ class Invitation < ActiveRecord::Base
 
   def add_user_to_pot
     pot.users << @invited_user
-    pot.save!
+    if pot.save!
+      yield
+    end
   end
 
   def generate_token
