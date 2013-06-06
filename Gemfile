@@ -70,6 +70,7 @@ end
 group :test, :development do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+  gem 'timecop'
 end
 gem 'whenever', :require => false
 
