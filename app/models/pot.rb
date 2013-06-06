@@ -7,7 +7,6 @@
   has_many :subscriptions
   has_many :users, through: :subscriptions
   
-  # validates :users, presence: true
   
   WEEKDAYS = %w[monday tuesday wednesday thursday friday saturday sunday].freeze
   
