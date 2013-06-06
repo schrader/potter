@@ -67,7 +67,8 @@ group :development do
   gem 'rvm-capistrano'
 end
 
-group :test do
+group :test, :development do
+  gem 'factory_girl_rails'
   gem 'rspec-rails'
 end
 gem 'whenever', :require => false
