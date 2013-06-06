@@ -8,4 +8,14 @@ describe Link do
       Link.markoff
     end
   end
+
+  describe "#sent?" do
+    it "returns true if Link got already sent" do
+      Link.new(sent_at: Time.now).should be_sent
+    end
+
+    it "returns false if Link got not sent yet" do
+      Link.new.should_not be_sent
+    end
+  end
 end
