@@ -1,15 +1,15 @@
 class Invitation < ActiveRecord::Base
   belongs_to :pot
-  belongs_to :user
+  belongs_to :issuer, foreign_key: :user_id, class_name: 'User'
   before_validation :generate_token, on: :create
-  validates :user, :pot, :token, :email, presence: true
+  validates :issuer, :pot, :token, :email, presence: true
   
   def user_is_already_member?
   end
   
   def accept!(invited_user)
     @invited_user = invited_user
-    if pot.users.include?(user)
+    if @invited_user.is_a?(User) && pot.users.include?(issuer)
       if add_user_to_pot
         track_subscription
         destroy
@@ -27,7 +27,7 @@ class Invitation < ActiveRecord::Base
 
   def add_user_to_pot
     pot.users << @invited_user
-    pot.save
+    pot.save!
   end
 
   def generate_token

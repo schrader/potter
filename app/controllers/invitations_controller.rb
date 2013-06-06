@@ -22,7 +22,7 @@ class InvitationsController < ApplicationController
   # POST /invitations
   def create
     @invitation = Invitation.new(invitation_params)
-    @invitation.user = current_user
+    @invitation.issuer = current_user
     @invitation.pot = current_pot
     
     if @invitation.save
