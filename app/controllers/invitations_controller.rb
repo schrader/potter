@@ -15,10 +15,6 @@ class InvitationsController < ApplicationController
     @invitation = Invitation.new
   end
 
-  # # GET /invitations/1/edit
-  # def edit
-  # end
-
   # POST /invitations
   def create
     @invitation = Invitation.new(invitation_params)
@@ -26,7 +22,7 @@ class InvitationsController < ApplicationController
     @invitation.pot = current_pot
     
     if @invitation.save
-      UserMailer.invite(@invitation).deliver
+      InvitationNotifier.new(@invitation).notify
       redirect_to current_pot, notice: 'Einladung erfolgreich abgeschickt.'
     else
       render action: 'new'
@@ -43,21 +39,6 @@ class InvitationsController < ApplicationController
       redirect_to  @invitation.pot, notice: 'Du sitzt doch schon im Pott!'
     end
   end
-
-  # PATCH/PUT /invitations/1
-  # def update
-  #   if @invitation.update(invitation_params)
-  #     redirect_to @invitation, notice: 'Invitation was successfully updated.'
-  #   else
-  #     render action: 'edit'
-  #   end
-  # end
-
-  # DELETE /invitations/1
-  # def destroy
-  #   @invitation.destroy
-  #   redirect_to invitations_url, notice: 'Invitation was successfully destroyed.'
-  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
