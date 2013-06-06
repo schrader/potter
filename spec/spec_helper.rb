@@ -8,12 +8,17 @@
 ENV["RAILS_ENV"] = 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
+Dir["./spec/support/**/*.rb"].sort.each {|file| require file}
+
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true
   config.filter_run :focus
 
   config.include FactoryGirl::Syntax::Methods
+  
+  config.include Devise::TestHelpers, :type => :controller
+  config.extend ControllerMacros, :type => :controller
   
   config.use_transactional_fixtures = true
 
