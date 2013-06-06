@@ -15,6 +15,6 @@
   end
   
   def next_delivery_date
-    Chronic.parse("next #{delivery_day} at #{delivery_hour}")
+    Chronic.parse("next #{delivery_day} at #{delivery_hour}", ambiguous_time_range: :none)
   end
 end
