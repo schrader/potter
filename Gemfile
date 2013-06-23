@@ -9,6 +9,7 @@ gem 'pg'
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 4.0.0.rc2'
+
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', platforms: :ruby
   gem 'uglifier', '>= 1.3.0'
@@ -25,6 +26,8 @@ gem "draper"
 gem "letter_opener", :group => :development
 
 gem 'jquery-rails'
+gem "jquery-ui-rails"
+  
 
 gem 'simple_form', git: 'git://github.com/plataformatec/simple_form.git'
 
