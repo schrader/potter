@@ -19,6 +19,14 @@ class Invitation < ActiveRecord::Base
     true
   end
 
+  def issuer_name
+    self.issuer.name
+  end
+
+  def pot_name
+    self.pot.name
+  end
+
   private
 
   def track_subscription
