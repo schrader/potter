@@ -15,7 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(user_params)
     
     if @user.save
-      redirect_to edit_user_registration_path, flash: {success: "Account erfolgreich aktualisiert!"}
+      redirect_to success_path, flash: {success: "Account erfolgreich aktualisiert!"}
     else
       render "new"
     end
@@ -34,5 +34,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def user_params
     params.require(:user).permit(:password, :password_confirmation, :name, :email)
+  end
+
+  def success_path
+    session[:return_to_path] || root_path
   end
 end
