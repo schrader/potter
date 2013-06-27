@@ -2,5 +2,6 @@
 
 FactoryGirl.define do
   factory :link do
+    url "example.com"
   end
 end

@@ -3,8 +3,11 @@ require 'test_helper'
 class LinkTest < ActiveSupport::TestCase
   test ".markoff sets sent_at to current time for the collection of links" do
     Timecop.freeze
-    Link.expects(:update_all).with(sent_at: Time.zone.now)
+    create_list(:link, 3, user: build_stubbed(:user), pot: build_stubbed(:pot))
+
     Link.markoff
+    
+    assert_equal Link.where(sent_at: Time.now).count, 3
   end
 
   test "#sent returns true if Link got already sent" do
