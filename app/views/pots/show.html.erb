@@ -12,7 +12,7 @@
 </header>
 
 <p class="lead">
-  Dieser Pott sendet jeden <strong><%= t @pot.delivery_day %></strong> um  <strong><%= @pot.delivery_hour %></strong> eine Zusammenfassung an <strong><%= t ".people", count: @pot.users.count %></strong>!
+  Dieser Pott sendet jeden <strong><%= t @pot.delivery_day %></strong> um  <strong><%= @pot.delivery_hour %></strong> eine Zusammenfassung an <strong><span title="<%= @pot.users.map(&:name).join(", ") %>"><%= t ".people", count: @pot.users.count %></span></strong>!
 </p>
 
 <section>
