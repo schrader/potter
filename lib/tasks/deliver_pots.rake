@@ -6,8 +6,10 @@ namespace :pots do
       pot.users.each do |user|
         PotMailer.weekly(pot, user).deliver
       end
-      
+
       pot.markoff_new_links
+
+      pot.update(last_delivered_at: Time.zone.now)
     end
   end
   
@@ -17,6 +19,8 @@ namespace :pots do
       pot.users.each do |user|
         PotMailer.weekly(pot, user).deliver
       end
+
+      pot.update(last_delivered_at: Time.zone.now)
     end
   end
 end
