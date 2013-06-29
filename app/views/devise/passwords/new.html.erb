@@ -1,15 +1,17 @@
-<h2>Forgot your password?</h2>
+<div class="login-form">
+  <h2>Passwort vergessen?</h2>
+  <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), defaults: {wrapper: :login, input_html: {class: "login-field"}}) do |f| %>
 
-<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= f.error_notification %>
+    <div class="control-group">
+      <%= f.input_field :email, :required => false, :autofocus => true, placeholder: "deine Email" %>
+      <%= f.label :email, raw("&nbsp;"), class: "login-field-icon fui-man-16" %>
+    </div>
 
-  <div class="form-inputs">
-    <%= f.input :email, :required => true, :autofocus => true %>
+
+    <%= f.button :submit, "Passwort zurücksetzen", class: "btn btn-primary btn-large btn-block" %>
+  <% end %>
+
+  <div class="login-links">
+    <%= link_to "Einloggen", new_user_session_path %> &middot; <%= link_to "Passwort vergessen?", new_user_password_path %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

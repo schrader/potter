@@ -12,6 +12,9 @@ body#sign_in {
 	}
 
 	.login-form {
+		h2 {
+			margin:-0.2em 0 0.9em 0;
+		}
 		&:before {
 			display:none;
 		}

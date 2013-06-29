@@ -1,7 +1,7 @@
 Potter::Application.routes.draw do
   
 
-  devise_for :users, controllers: {sessions: "users/sessions", registrations: "users/registrations"}
+  devise_for :users, controllers: {sessions: "users/sessions", registrations: "users/registrations", passwords: "users/passwords"}
 
   resources :invitations, only: [:index, :show] do
     collection do
