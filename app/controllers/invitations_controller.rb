@@ -22,7 +22,7 @@ class InvitationsController < ApplicationController
     @invitation.pot = current_pot
     
     if @invitation.save
-      InvitationNotifier.new(@invitation).notify
+      InvitationNotifier.new(@invitation).send_invitation
       redirect_to current_pot, notice: 'Einladung erfolgreich abgeschickt.'
     else
       render action: 'new'
