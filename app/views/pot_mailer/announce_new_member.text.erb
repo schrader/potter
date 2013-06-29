@@ -1,0 +1,11 @@
+Hej <%= @username %>,
+
+wir begrüßen <%= @new_members_name %> in „<%= @pot.name %>“!
+
+„<%= @pot.name %>“ hat nun <%= @pot.users.to_a.count %> Mitglieder:
+
+<% @pot.users.each do |user| %>
+  - <%= user.name %>
+<% end %>
+
+Dein Potter!

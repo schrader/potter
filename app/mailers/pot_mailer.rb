@@ -13,4 +13,13 @@ class PotMailer < ActionMailer::Base
 
     mail to: user.email, subject: "#{@potname}: #{l(Date.today, format: :short)}"
   end
+
+  def announce_new_member(receiver, pot, new_member)
+    @pot = pot
+    @pot.users.to_a # caching...
+    @username = receiver.name
+    @new_members_name = new_member.name
+    
+    mail to: receiver.email, subject: "Neues Mitglied in #{@pot.name}"
+  end
 end
