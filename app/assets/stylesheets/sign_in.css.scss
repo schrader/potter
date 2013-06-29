@@ -1,6 +1,6 @@
 
 body#sign_in {
-  background:#1abc9c;
+  background:#34495e;
   
 
 	.login-screen {
@@ -8,13 +8,20 @@ body#sign_in {
 	  padding:0;
 	  width:359px;
 	  color:#2C3E50;
+	  background:#34495e;
 	}
 
-	.login-icon {
-	  margin-left:-130px;
-	  top:auto;
-	  left:auto;
+	.login-form {
+		&:before {
+			display:none;
+		}
 	}
+
+	// .login-icon {
+	//   margin-left:-130px;
+	//   top:auto;
+	//   left:auto;
+	// }
 
 	.login-links {
 		width: 100%;
