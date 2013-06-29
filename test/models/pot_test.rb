@@ -14,4 +14,19 @@ class PotTest < ActiveSupport::TestCase
 
     Pot.new.markoff_new_links
   end
+
+  test "#new_members" do
+    Timecop.travel(3.days.ago) do
+      @pot = create(:pot, last_delivered_at: Time.zone.now)
+      old_members = create_list(:user, 2)
+      @pot.users << old_members
+      @pot.save
+    end
+
+    @new_members = create_list(:user, 2)
+    @pot.users << @new_members
+    @pot.save
+
+    assert_equal @pot.new_members, @new_members
+  end
 end
