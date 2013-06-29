@@ -12,6 +12,7 @@ de:
       timeout: "Die Sitzung ist abgelaufen, bitte melde dich erneut an."
       unauthenticated: "Du musst dich zuerst anmelden."
       unconfirmed: "Du musst deinen Acoount zuerst bestätigen."
+      not_found_in_database: "Leider konnten wir keinen Account mit dieser Adresse finden :("
     mailer: 
       confirmation_instructions: 
         subject: "Anweisungen zur Bestätigung"
