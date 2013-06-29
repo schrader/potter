@@ -10,9 +10,26 @@
 }
 
 body {
-  background:url("/agsquare_@2X.png");
+  background: #34495e; //url("/agsquare_@2X.png");
 
-  
+  .tooltip {
+    .tooltip-inner {
+      background-color:#333; 
+    }
+
+    &.top{
+      .tooltip-arrow {
+        border-top-color:#333 !important;
+      }
+    }
+
+    &.bottom{
+      .tooltip-arrow {
+        border-bottom-color:#333 !important;
+      }
+    }
+  }
+
   #header {
     min-height:150px;
     #mainnav {
