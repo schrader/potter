@@ -29,7 +29,6 @@ class PotsController < ApplicationController
     @pot.users << current_user
     respond_to do |format|
       if @pot.save
-        @pot.create_activity :create, owner: current_user
         format.html { redirect_to @pot, notice: 'Pott wurde erstellt.' }
         format.json { render action: 'show', status: :created, location: @pot }
       else
@@ -44,7 +43,6 @@ class PotsController < ApplicationController
   def update
     respond_to do |format|
       if @pot.update(pot_params)
-        @pot.create_activity :update, owner: current_user
         format.html { redirect_to @pot, notice: 'Pott wurde aktualisiert.' }
         format.json { head :no_content }
       else

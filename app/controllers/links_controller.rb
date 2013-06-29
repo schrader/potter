@@ -31,7 +31,6 @@ class LinksController < ApplicationController
     
     respond_to do |format|
       if @link.save
-        @link.create_activity :create, owner: current_user
 
         format.html do
           if params[:return_to].present?
@@ -53,7 +52,6 @@ class LinksController < ApplicationController
   def update
     respond_to do |format|
       if @link.update(link_params)
-        @link.create_activity :update, owner: current_user
         format.html { redirect_to @link.pot, flash: {success: 'Link wurde aktualisiert.'} }
         format.json { head :no_content }
       else
