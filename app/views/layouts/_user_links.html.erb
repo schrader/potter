@@ -4,7 +4,7 @@
       <%= link_to raw('<span class="fui-man-24"></span> ' + current_user.name), "#", class: "" %>
       <ul>
         <li>
-          <%= link_to "Profil", user_registration_path%>
+          <%= link_to "Profil", edit_user_registration_path%>
         </li>
         <li>
           <%= link_to "Logout", destroy_user_session_path, class: "", method: :delete  %>
