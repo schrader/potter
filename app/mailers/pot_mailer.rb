@@ -7,11 +7,11 @@ class PotMailer < ActionMailer::Base
   #   en.pot_mailer.weekly.subject
   #
   def weekly(pot, user)
-    @potname = pot.name
+    @pot = pot
     @links_grouped_by_hottiness = pot.new_links.order("hottiness DESC").group_by(&:hottiness)
     @username = user.name
 
-    mail to: user.email, subject: "#{@potname}: #{l(Date.today, format: :short)}"
+    mail to: user.email, subject: "#{@pot.name}: #{l(Date.today, format: :short)}"
   end
 
   def announce_new_member(receiver, pot, new_member)

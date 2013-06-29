@@ -1,5 +1,9 @@
 Hallo <%= @username %>,
 
+<% if @pot.new_members.any? %>
+wir haben Zuwachs! <%= @pot.new_members.map(&:name).join(", ") %> <%= @pot.new_members.to_a.count == 1 ? "ist" : "sind" %> heute zum ersten Mal dabei!
+<% end %>
+
 diese Woche haben sich folgende Links angesammelt:
 
 <%  @links_grouped_by_hottiness.each_pair do |hottiness, links| %>
@@ -13,7 +17,11 @@ diese Woche haben sich folgende Links angesammelt:
         <%= link.description.present? ? "„#{link.description}“" : '' %>
 
   <% end %>
+<% end %>
 
+Diese Email wurde natürlich auch an alle anderen Mitglieder geschickt:
+<% @pot.users.each do |user| %>
+  - <%= user.name %>
+<% end %>
 
-<% end %>  
 Bis nächste Woche!
