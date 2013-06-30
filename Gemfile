@@ -75,7 +75,8 @@ group :test, :development do
   gem "mocha", require: false
   gem 'timecop'
 end
-gem 'whenever', :require => false
 
+gem 'whenever', :require => false
+gem 'rack-mini-profiler'
 # To use debugger
 # gem 'debugger'
