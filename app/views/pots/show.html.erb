@@ -42,32 +42,33 @@
       <div class="span12">
         <h2>Deine Links für nächsten <%= t @pot.delivery_day %></h2>
 
-        <% if @pot.new_links.any? %>
-          <table class="table table-bordered" id="pot_links">
-            <thead>
-              <tr>
-                <th class="link_sent"></th>
-                <th>Link</th>
-                <th>Autor</th>
-                <th>Hinzugefügt am</th>
-                <th>Hottiness</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% cache(@pot) do %>
+
+        <% cache(["new_links", @pot]) do %>
+          <% if @pot.new_links.any? %>
+            <table class="table table-bordered" id="pot_links">
+              <thead>
+                <tr>
+                  <th class="link_sent"></th>
+                  <th>Link</th>
+                  <th>Autor</th>
+                  <th>Hinzugefügt am</th>
+                  <th>Hottiness</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
                 <%= render partial: 'link', collection:  @pot.new_links.from_user(current_user).decorate %>
-              <% end %>
-            </tbody>
-          </table>
-        <% else %>
-          <p class="palette no_links palette-silver">
-            Du hast diese Woche noch keine Links gesammelt.
-          <% if @pot.new_links.from_others_than(current_user).any? %>
-              <br>
-              <strong>Halt dich ran, die anderen haben in dieser Woche schon <%= pluralize(@pot.new_links.from_others_than(current_user).count, "Link") %> gesammelt!</strong>
+              </tbody>
+            </table>
+          <% else %>
+            <p class="palette no_links palette-silver">
+              Du hast diese Woche noch keine Links gesammelt.
+            <% if @pot.new_links.from_others_than(current_user).any? %>
+                <br>
+                <strong>Halt dich ran, die anderen haben in dieser Woche schon <%= pluralize(@pot.new_links.from_others_than(current_user).count, "Link") %> gesammelt!</strong>
+            <% end %>
+            </p>
           <% end %>
-          </p>
         <% end %>
       </div>
     </div>
