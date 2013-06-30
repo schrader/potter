@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
   has_many :links
   has_many :subscriptions
   has_many :pots, through: :subscriptions
+
+  def cached_pots
+    Rails.cache.fetch([self, "pots"]) { pots.to_a }
+  end
 end
