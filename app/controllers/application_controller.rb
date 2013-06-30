@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   
+  before_filter :enable_mini_profiler
   before_filter :store_path
   before_filter :authenticate_user!
   after_filter :unset_return_to_path
@@ -13,7 +14,6 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(user)
     session[:return_to_path] || pots_path
   end
-  
   
   def after_sign_up_path_for(_)
     pots_path
@@ -25,5 +25,9 @@ class ApplicationController < ActionController::Base
 
   def unset_return_to_path
     session[:return_to_path] = nil if signed_in?
+  end
+
+  def enable_mini_profiler
+    Rack::MiniProfiler.authorize_request if params[:profile]
   end
 end
