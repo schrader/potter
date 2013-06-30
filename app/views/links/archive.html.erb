@@ -17,23 +17,25 @@
     <div class="span12">
       <h2>Archiv</h2>
 
-      <%= will_paginate @links, inner_window: 8 %>
-      <table class="table table-bordered" id="pot_links">
-        <thead>
-          <tr>
-            <th class="link_sent"></th>
-            <th>Link</th>
-            <th>Autor</th>
-            <th>Hinzugefügt am</th>
-            <th>Hottiness</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <%= render partial: 'link', collection:  @links %>
-        </tbody>
-      </table>
-      <%= will_paginate @links, inner_window: 8 %>
+      <% cache([current_pot, params[:page] || 1]) do %>
+        <%= will_paginate @links, inner_window: 8 %>
+        <table class="table table-bordered" id="pot_links">
+          <thead>
+            <tr>
+              <th class="link_sent"></th>
+              <th>Link</th>
+              <th>Autor</th>
+              <th>Hinzugefügt am</th>
+              <th>Hottiness</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render partial: 'link', collection:  @links %>
+          </tbody>
+        </table>
+        <%= will_paginate @links, inner_window: 8 %>
+      <% end %>
     </div>
   </div>
 </section>
