@@ -5,7 +5,7 @@
     <td title="<%= @pot.next_delivery_date %>" class="link_sent palette-info"><span class="fui-time-24"></span></td>
   <% end %>
   <td><%= link_to link.name, link.url, target: "_blank" %></td>
-  <td><%= link.user.name %></td>
+  <td><%= link.cached_user_name %></td>
   <td><%= l link.created_at, format: :short %></td>
   <td><span class="label label-<%= link.hottiness_label %>"><%= link.hottiness %></span></td>
   <td><%= link_to "bearbeiten", edit_pot_link_path(@pot, link) %></td>

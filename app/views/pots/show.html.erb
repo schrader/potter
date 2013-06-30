@@ -12,7 +12,7 @@
 </header>
 
 <p class="lead">
-  Dieser Pott sendet jeden <strong><%= t @pot.delivery_day %></strong> um  <strong><%= @pot.delivery_hour %></strong> eine Zusammenfassung an <strong><span title="<%= @pot.users.map(&:name).join(", ") %>"><%= t ".people", count: @pot.users.count %></span></strong>!
+  Dieser Pott sendet jeden <strong><%= t @pot.delivery_day %></strong> um  <strong><%= @pot.delivery_hour %></strong> eine Zusammenfassung an <strong><span title="<%= @pot.cached_users.map(&:name).join(", ") %>"><%= t ".people", count: @pot.cached_users_count %></span></strong>!
 </p>
 
 <section>
@@ -55,7 +55,9 @@
               </tr>
             </thead>
             <tbody>
-              <%= render partial: 'link', collection:  @pot.new_links.from_user(current_user).decorate %>
+              <% cache(@pot) do %>
+                <%= render partial: 'link', collection:  @pot.new_links.from_user(current_user).decorate %>
+              <% end %>
             </tbody>
           </table>
         <% else %>

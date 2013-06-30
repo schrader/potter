@@ -3,7 +3,7 @@ class Link < ActiveRecord::Base
   
   HOTTINESSES = {1 => "interesting for some of us", 2 => "interesting for everybody", 3 => "just. fucking. read. it."}
   
-  belongs_to :pot
+  belongs_to :pot, touch: true
   belongs_to :user
   
   scope :from_user, lambda {|user| where("user_id = ?", user.id)}
@@ -19,5 +19,9 @@ class Link < ActiveRecord::Base
   
   def sent?
     self.sent_at.present?
+  end
+
+  def cached_user_name
+    Rails.cache.fetch([self, "user_name"]) { user.name }
   end
 end

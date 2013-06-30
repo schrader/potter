@@ -20,4 +20,12 @@ class Pot < ActiveRecord::Base
   def new_members
     users.where("subscriptions.created_at > ?", last_delivered_at)
   end
+
+  def cached_users_count
+    Rails.cache.fetch([self, "users_count"]) { users.size }
+  end
+
+  def cached_users
+    Rails.cache.fetch([self, "users"]) { users.to_a }
+  end
 end
