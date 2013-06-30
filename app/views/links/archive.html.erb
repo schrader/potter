@@ -1,0 +1,39 @@
+<section>
+  <header>
+    <%= link_to "einladen", new_pot_invitation_path(current_pot), class: "pull-right" %>
+    <h1>
+      <%= current_pot.name %>
+      <small><%= link_to raw('<i class="icon-cog"></i>'), edit_pot_path(@pot), class: "muted" %></small>
+    </h1>
+
+    <nav class="sub_pot_nav">
+      <ul>
+        <li><%= link_to "Übersicht", current_pot %></li>
+        <li>Archiv</li>
+      </ul>
+    </nav>
+  </header>
+  <div class="row">
+    <div class="span12">
+      <h2>Archiv</h2>
+
+      <%= will_paginate @links, inner_window: 8 %>
+      <table class="table table-bordered" id="pot_links">
+        <thead>
+          <tr>
+            <th class="link_sent"></th>
+            <th>Link</th>
+            <th>Autor</th>
+            <th>Hinzugefügt am</th>
+            <th>Hottiness</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render partial: 'link', collection:  @links %>
+        </tbody>
+      </table>
+      <%= will_paginate @links, inner_window: 8 %>
+    </div>
+  </div>
+</section>

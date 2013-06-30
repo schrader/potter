@@ -67,3 +67,7 @@ de:
   sunday: Sonntag
   thursday: Donnerstag
   tuesday: Dienstag
+  will_paginate:
+    previous_label: "&longleftarrow;"
+    page_gap: " ... "
+    next_label: "&longrightarrow;"

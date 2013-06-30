@@ -8,6 +8,10 @@ class LinksController < ApplicationController
     @links = Link.all
   end
 
+  def archive
+    @links = current_pot.old_links.paginate(page: params[:page], per_page: 30).decorate
+  end
+
   # GET /links/1
   # GET /links/1.json
   def show
@@ -85,7 +89,9 @@ class LinksController < ApplicationController
     def current_pot
       @current_pot ||= Pot.find(params[:pot_id])
     end
-    
+    helper_method :current_pot
+
+
     def set_pot
       @pot = current_pot
     end

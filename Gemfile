@@ -78,5 +78,6 @@ end
 
 gem 'whenever', :require => false
 gem 'rack-mini-profiler'
+gem 'will_paginate', "> 3"
 # To use debugger
 # gem 'debugger'

@@ -9,8 +9,12 @@ Potter::Application.routes.draw do
     end 
   end
   
-  resources :pots do
-    resources :links
+  resources :pots do    
+    resources :links do
+      collection do
+        get :archive
+      end
+    end
     resources :invitations, only: [:create, :new]
   end
   
