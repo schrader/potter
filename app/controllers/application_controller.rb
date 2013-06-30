@@ -28,6 +28,9 @@ class ApplicationController < ActionController::Base
   end
 
   def enable_mini_profiler
-    Rack::MiniProfiler.authorize_request if params[:profile]
+    if params[:enable_mini_profiler] || session[:enable_mini_profiler] 
+      Rack::MiniProfiler.authorize_request
+      session[:enable_mini_profiler] = true
+    end
   end
 end
