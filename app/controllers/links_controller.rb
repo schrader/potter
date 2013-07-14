@@ -95,4 +95,23 @@ class LinksController < ApplicationController
     def set_pot
       @pot = current_pot
     end
+    class CalendarWeek
+      delegate :to_date, :to_datetime, :strftime, :year, to: :monday
+
+      def initialize(date)
+        @monday = date.beginning_of_week
+      end
+
+      def monday
+        @monday
+      end
+
+      def to_s
+        @monday.strftime("%W").to_s
+      end
+
+      def to_str
+        to_s
+      end
+    end
 end
