@@ -17,8 +17,32 @@
     <div class="span12">
       <h2>Archiv</h2>
 
-      <% cache([current_pot, params[:page] || 1]) do %>
-        <%= will_paginate @links, inner_window: 8 %>
+      <%# raw archive_weeks.map{|date| link_to("vor #{((Date.today - date).days / (60 * 60 * 24 * 7)).to_i} Wochen", archive_pot_links_path(current_pot, archive_week: date.iso8601)) }.join(', ') %>
+
+      <div class="archive_picker">
+        <ul>
+          <% archive_weeks_grouped_by_years_and_months.each do |year, months| %>
+            <li>
+              <h3><%= year %></h3>
+              <ul>
+                <% months.each do |month, weeks| %>
+                  <li>
+                    <%= month %>
+                    <ul>
+                      <% weeks.each do |week| %>
+                      <li>
+                        <%= link_to(week, archive_pot_links_path(current_pot, calendar_week: week, year: week.year)) %>
+                      </li>
+                      <% end %>
+                    </ul>
+                  </li>
+                <% end %>
+              </ul>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <%# cache([current_pot, requested_date]) do %>
         <table class="table table-bordered" id="pot_links">
           <thead>
             <tr>
@@ -34,8 +58,8 @@
             <%= render partial: 'link', collection:  @links %>
           </tbody>
         </table>
-        <%= will_paginate @links, inner_window: 8 %>
-      <% end %>
+        <%# will_paginate @links, inner_window: 8 %>
+      <%# end %>
     </div>
   </div>
 </section>

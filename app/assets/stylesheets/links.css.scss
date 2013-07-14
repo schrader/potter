@@ -1,3 +1,50 @@
-// Place all the styles related to the links controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.archive_picker {
+  max-width:100%;
+  overflow: scroll;
+  border:1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom:2em;
+  white-space:nowrap;
+
+  ul {
+    margin:0;
+    list-style:none;
+
+    li {
+      display:inline-block;
+    }
+  }
+  & > ul {
+    & > li {
+      padding:5px 0 0 10px;
+      border-left:1px solid #ddd;
+      h3 {
+        font-size:1.5em;
+        line-height:1em;
+      }
+      &:first-child {
+        border-left:none;
+      }
+
+      & > ul {
+        height:100%;
+
+        & > li {
+          padding:0 0 0 10px;
+          margin:0 0 4px 0;
+          border-left:1px solid #ddd;
+
+          &:first-child {
+            border-left:none;
+          }
+
+          & > ul {
+            & > li {
+              padding:0.5em 2em 1em 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
