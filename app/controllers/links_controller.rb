@@ -9,7 +9,7 @@ class LinksController < ApplicationController
   end
 
   def archive
-    @links = current_pot.old_links.paginate(page: params[:page], per_page: 30).decorate
+    @links = current_pot.old_links.sent_directly_after(requested_date).decorate
   end
 
   # GET /links/1
