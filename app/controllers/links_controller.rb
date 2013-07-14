@@ -95,6 +95,14 @@ class LinksController < ApplicationController
     def set_pot
       @pot = current_pot
     end
+
+    def requested_date
+      CalendarWeek.new(Date.strptime(params[:calendar_week] + params[:year], "%W%Y"))
+    rescue
+      CalendarWeek.new(current_pot.last_delivered_at)
+    end
+    helper_method :requested_date
+
     class CalendarWeek
       delegate :to_date, :to_datetime, :strftime, :year, to: :monday
 
