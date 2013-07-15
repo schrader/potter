@@ -1,0 +1,28 @@
+<section>
+  <div class="row">
+    <div class="span12">
+      <%= simple_form_for [@pot, @link], html: {class: "well new_link_form"} do |f| %>
+        <header>
+          <h3>Neuen Link hinzufügen</h3>
+          <span class="bookmarklet">Bookmarklet: <%= link_to "neuer Link für #{@pot.name}", "javascript:" + u(render(partial: "pots/bookmarklet", formats: :js)), class: "newlink", title: "Ziehe diesen Button einfach in deine Lesezeichenleiste, um jederzeit schnell und bequem neue Links zu diesem Pott hinzuzufügen!" %></span>
+        </header>
+        
+        <%= f.input :name, placeholder: "Titel", input_html: {class: "span9"}  %>
+        <%= f.input :url, placeholder: "example.com", input_html: {class: "span9"} %>
+        <%= f.input :description, placeholder: "Lorem ipsum...", input_html: {class: "span9"}  %>
+      
+        <%= f.input :hottiness, collection: {"gut" => 1, "nicer Shit!" => 2, "Lesebefehl!" => 3}, input_html: {class: "span3"}, include_blank: false %>
+        <%= hidden_field_tag :return_to, params[:url] if params[:url].present? %>
+        <div class="control-group">
+          <div class="controls">
+            <% if params[:url].present? %>
+              <%= f.submit "Link erstellen und zu #{params[:url].split('/')[2]} zurückkehren", class: "btn btn-large btn-primary" %>
+            <% else %>
+              <%= f.submit "Link hinzufügen" , class: "btn btn-large span3 btn-primary " %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
