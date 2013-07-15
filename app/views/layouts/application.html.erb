@@ -9,6 +9,9 @@
   </head>
   <body>
     <div class="container" id="header">
+        
+      <h1>Oh, Potter!</h1>
+
       <div id="main_nav" class="container">
         <%= render partial: "layouts/pot_nav" %>
         <%= render partial: 'layouts/user_links' %>
@@ -29,9 +32,7 @@
               <%= value %>
             </div>
           <% end %>
-        </div>
-        
-        
+        </div>        
         <%= yield %>
       </div>
     </div>
