@@ -8,5 +8,5 @@
   <td><%= link.cached_user_name %></td>
   <td><%= l link.created_at, format: :short %></td>
   <td><span class="label label-<%= link.hottiness_label %>"><%= link.hottiness %></span></td>
-  <td><%= link_to "bearbeiten", edit_pot_link_path(@pot, link) %></td>
+  <td><%= link_to "bearbeiten", edit_pot_link_path(@pot, link) %> | <%= link_to "löschen", pot_link_path(@pot, link), method: :delete %></td>
 </tr>

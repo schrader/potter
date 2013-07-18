@@ -69,8 +69,9 @@ class LinksController < ApplicationController
   # DELETE /links/1.json
   def destroy
     @link.destroy
+    flash[:success] = "Link gelöscht!"
     respond_to do |format|
-      format.html { redirect_to links_url }
+      format.html { redirect_to pot_path(@link.pot) }
       format.json { head :no_content }
     end
   end

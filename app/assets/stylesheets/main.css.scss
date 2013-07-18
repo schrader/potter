@@ -12,6 +12,10 @@
 body {
   background: #34495e; //url("/agsquare_@2X.png");
   
+  .danger, [data-method=delete] {
+    color: #E74C3C;
+  }
+
   .tooltip {
     .tooltip-inner {
       background-color:#333; 
