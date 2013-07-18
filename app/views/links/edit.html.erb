@@ -1,7 +1,24 @@
-<% content_for :breadcrump do %>
-  <% breadcrump(link_to("Potts", pots_path), link_to("„" + @pot.name + "“", pot_path(@pot)),"Link „" + @link.name + "“", "bearbeiten") %>
-<% end %>
-
-<h1>Link bearbeiten</h1>
-
-<%= render 'form' %>
+<section>
+  <div class="row">
+    <div class="span12">
+      <%= simple_form_for [@pot, @link], html: {class: "well new_link_form"} do |f| %>
+        <header>
+          <h3>Link bearbeiten</h3>
+          <span class="bookmarklet">Bookmarklet: <%= link_to "neuer Link für #{@pot.name}", "javascript:" + u(render(partial: "pots/bookmarklet", formats: :js)), class: "newlink", title: "Ziehe diesen Button einfach in deine Lesezeichenleiste, um jederzeit schnell und bequem neue Links zu diesem Pott hinzuzufügen!" %></span>
+        </header>
+        
+        <%= f.input :name, placeholder: "Titel", input_html: {class: "span9"}  %>
+        <%= f.input :url, placeholder: "example.com", input_html: {class: "span9"} %>
+        <%= f.input :description, placeholder: "Lorem ipsum...", input_html: {class: "span9"}  %>
+      
+        <%= f.input :hottiness, collection: {"gut" => 1, "nicer Shit!" => 2, "Lesebefehl!" => 3}, input_html: {class: "span3"}, include_blank: false %>
+        <%= hidden_field_tag :return_to, params[:url] if params[:url].present? %>
+        <div class="control-group">
+          <div class="controls">
+            <%= f.submit "Link aktualisieren" , class: "btn btn-large span3 btn-primary " %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
