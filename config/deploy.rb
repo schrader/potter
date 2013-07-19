@@ -4,7 +4,7 @@
 set :application, "potter"
 set :user, 'deploy'
 set :port, '2222'
-set(:deploy_to) { "/home/deploy/ruby_on_rails/potter.sophisticates.de" }
+set(:deploy_to) { "/home/deploy/ruby_on_rails/potterapp.de" }
 #set :deploy_via, :remote_cache
 set :use_sudo, false
 
