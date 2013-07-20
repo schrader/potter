@@ -4,7 +4,7 @@
       <%= simple_form_for [@pot, @link], html: {class: "well new_link_form"} do |f| %>
         <header>
           <h3>Neuen Link hinzufügen</h3>
-          <span class="bookmarklet">Bookmarklet: <%= link_to "neuer Link für #{@pot.name}", "javascript:" + u(render(partial: "pots/bookmarklet", formats: :js)), class: "newlink", title: "Ziehe diesen Button einfach in deine Lesezeichenleiste, um jederzeit schnell und bequem neue Links zu diesem Pott hinzuzufügen!" %></span>
+          <span class="bookmarklet">Bookmarklet: <%= link_to "zu Potter hinzufügen", "javascript:" + u(render(partial: "links/bookmarklet", formats: :js)), class: "newlink", title: "Ziehe diesen Button einfach in deine Lesezeichenleiste, um jederzeit schnell und bequem neue Links zu deinen Potts hinzuzufügen!" %></span>
         </header>
         
         <%= f.input :name, placeholder: "Titel", input_html: {class: "span9"}  %>

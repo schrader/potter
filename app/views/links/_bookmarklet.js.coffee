@@ -8,6 +8,6 @@ pb = ->
   if(getSelectedText())
     selectedTextParam = "&name=" + encodeURIComponent(getSelectedText())
 
-  document.location = "<%= "#{request.protocol}#{request.host_with_port}" %>/pots/<%= @pot.id %>/links/new?" + urlParam + selectedTextParam 
+  document.location = "<%= "#{request.protocol}#{request.host_with_port}" %>/links/new?" + urlParam + selectedTextParam 
 
 pb()
