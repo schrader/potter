@@ -65,7 +65,7 @@ class PotsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pot
-      @pot = current_user.pots.find(params[:id]).decorate
+      @pot ||= current_user.pots.find(params[:pot_id] || params[:id]).decorate
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

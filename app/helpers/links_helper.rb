@@ -1,6 +1,6 @@
 module LinksHelper
   def archive_weeks
-    Link.where(pot_id: current_pot).uniq(:sent_at).order(sent_at: :desc).pluck(:sent_at).compact.map{|date| LinksController::CalendarWeek.new(date)}
+    Link.where(pot_id: current_pot).uniq(:sent_at).order(sent_at: :desc).pluck(:sent_at).compact.map{|date| Pots::LinksController::CalendarWeek.new(date)}
   end
 
   def archive_weeks_grouped_by_years_and_months

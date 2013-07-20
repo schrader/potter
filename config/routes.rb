@@ -8,9 +8,12 @@ Potter::Application.routes.draw do
       get :accept
     end 
   end
+
+  resources :links, only: [:new, :create]
   
-  resources :pots do    
-    resources :links do
+  resources :pots do
+    resources :links, except: [:new], controller: 'pots/links'  do
+
       collection do
         get :archive
       end

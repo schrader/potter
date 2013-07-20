@@ -22,7 +22,7 @@
 </p>
 
 <section>
-  <%= render partial: 'links/new_form' %>
+  <%= render partial: 'pots/links/new_form' %>
   <section>
     <div class="row">
       <div class="span12">
@@ -43,7 +43,7 @@
                 </tr>
               </thead>
               <tbody>
-                <%= render partial: 'links/link', collection:  @pot.new_links.from_user(current_user).decorate %>
+                <%= render partial: 'pots/links/link', collection:  @pot.new_links.from_user(current_user).decorate %>
               </tbody>
             </table>
           <% else %>
