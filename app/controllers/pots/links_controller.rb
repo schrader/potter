@@ -3,25 +3,10 @@ module Pots
     before_action :set_link, only: [:show, :edit, :update, :destroy]
     skip_before_action :set_pot
 
-    # GET /links
-    # GET /links.json
-    def index
-      @links = Link.all
-    end
-
     def archive
       @links = current_pot.old_links.sent_directly_after(requested_date).decorate
     end
 
-    # GET /links/1
-    # GET /links/1.json
-    def show
-    end
-
-    # GET /links/new
-    def new
-      @link = Link.new(name: params[:name], url: params[:url])
-    end
 
     # GET /links/1/edit
     def edit
