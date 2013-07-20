@@ -13,7 +13,7 @@
       
         <%= f.input :hottiness, collection: {"gut" => 1, "nicer Shit!" => 2, "Lesebefehl!" => 3}, input_html: {class: "span3"}, include_blank: false %>
 
-        <%= f.input :pot_ids, collection: current_user.pots,  as: :check_boxes, label: "Pott auswählen"  %>
+        <%= f.input :pot_ids, collection: current_user.pots, :input_html => { checked: true },   as: :check_boxes, label: "Pott auswählen"  %>
 
         <%= hidden_field_tag :return_to, params[:url] if params[:url].present? %>
         <div class="control-group">
