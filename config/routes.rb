@@ -20,6 +20,8 @@ Potter::Application.routes.draw do
     end
     resources :invitations, only: [:create, :new]
   end
+
+  get '/pots/:id/links/new' => 'links#new'
   
   root to: "pots#index"
 end
