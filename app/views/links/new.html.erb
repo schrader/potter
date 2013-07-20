@@ -11,7 +11,7 @@
         <%= f.input :url, placeholder: "example.com", input_html: {class: "span9"} %>
         <%= f.input :description, placeholder: "Lorem ipsum...", input_html: {class: "span9"}  %>
       
-        <%= f.input :hottiness, collection: {"gut" => 1, "nicer Shit!" => 2, "Lesebefehl!" => 3}, input_html: {class: "span3"}, include_blank: false %>
+        <%= f.input :hottiness, label: 'Empfehlungsstufe', collection: {"interessant" => 1, "lesen!" => 2, "Lesebefehl!!!" => 3}, input_html: {class: "span3"}, include_blank: false %>
 
         <%= f.input :pot_ids, collection: current_user.pots, :input_html => { checked: true },   as: :check_boxes, label: "Pott auswählen"  %>
 
