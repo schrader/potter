@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
   after_filter :unset_return_to_path
 
   protected
+
+  def redirect_to_main_url
+    
+  end
   
   def after_sign_in_path_for(user)
     session[:return_to_path] || pots_path
