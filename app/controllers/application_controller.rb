@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   
+  before_filter :redirect_to_main_url
   before_filter :enable_mini_profiler
   before_filter :store_path
   before_filter :authenticate_user!
@@ -12,7 +13,9 @@ class ApplicationController < ActionController::Base
   protected
 
   def redirect_to_main_url
-    
+    unless request.domain.downcase == "potterapp.de" || Rails.env != 'production'
+      redirect_to "http://potterapp.de#{request.path}" + (request.query_string ? "?#{request.query_string}" : '')
+    end
   end
   
   def after_sign_in_path_for(user)

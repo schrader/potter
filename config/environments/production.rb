@@ -81,7 +81,7 @@ Potter::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
   
-  config.action_mailer.default_url_options = { :host => 'potter.sophisticates.de' }
+  config.action_mailer.default_url_options = { :host => 'potterapp.de' }
   config.action_mailer.delivery_method   = :postmark
   config.action_mailer.postmark_settings = { :api_key => "b1d2509d-9700-4174-8c3c-7457eeff493b" }
 end
