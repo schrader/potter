@@ -14,8 +14,8 @@
 //= require jquery.ui.all
 //= require jquery_ujs
 //= require bootstrap
-//= require custom_checkbox_and_radio
-//= require custom_radio
-//= require jquery.dropkick-1.0.0
+// require custom_checkbox_and_radio
+// require custom_radio
+// require jquery.dropkick-1.0.0
 //= requrie custom
 //= require_tree .
