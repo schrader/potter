@@ -12,6 +12,11 @@
 body {
   background: #34495e; //url("/agsquare_@2X.png");
   
+  #uvTab {
+    box-shadow:none !important;
+    -webkit-box-shadow:none !important;
+    border-radius: 0 !important;
+  }
   .danger, [data-method=delete] {
     color: #E74C3C;
   }
