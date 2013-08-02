@@ -15,7 +15,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(user_params)
     
     if @user.save
-      redirect_to success_path, flash: {success: "Account erfolgreich aktualisiert!"}
+      sign_in(@user)
+      redirect_to success_path, flash: {success: "Erfolgreich registriert!"}
     else
       render "new"
     end
