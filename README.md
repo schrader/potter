@@ -2,7 +2,7 @@
 
 [![Code Climate](https://codeclimate.com/github/cschell/potter.png)](https://codeclimate.com/github/cschell/potter)
 
-[Potter](http://potterapp.de) is a side project where I try to fight the distractions resolving from the immediate desire to share everything with people around you, regardless if they want or don't want their inboxes getting cluttered.
+[Potter](http://potterapp.de) is a side project where I try to fight the distractions coming from the immediate desire to share everything with people around you, regardless if they want or don't want their inboxes getting cluttered.
 
 With [Potter](http://potterapp.de) you can create a "pot", invite people to it and start throwing links to interesting things on the internet into that pot – a sophisticated bookmarklet will help you anytime you discover something! Every week Potter will create an email containing last week's links and send it to its members so they get everything at once.
 
