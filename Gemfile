@@ -63,6 +63,8 @@ gem 'postmark-rails'
 # Use unicorn as the app server
 gem 'unicorn'
 
+gem 'roadie'
+
 # Deploy with Capistrano
 group :development do
   gem 'capistrano'
