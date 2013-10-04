@@ -1,5 +1,6 @@
 class PotMailer < ActionMailer::Base
-  default from: "hedwig@sophisticates.de"
+  default from: "hedwig@sophisticates.de", css: ['bootstrap', 'flat-ui']
+
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:

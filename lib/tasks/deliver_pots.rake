@@ -20,7 +20,7 @@ namespace :pots do
         PotMailer.weekly(pot, user).deliver
       end
 
-      pot.update(last_delivered_at: Time.zone.now)
+      #pot.update(last_delivered_at: Time.zone.now)
     end
   end
 end

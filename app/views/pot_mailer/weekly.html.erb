@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Dein Pott „<%= @pot.name %>“</title>
+    <style>
+      body, table, th, td, tr {
+        font-size:14px;
+        line-height:1.5em;
+      }
+
+      .table-bordered {
+        width:100%;
+        border: 1px solid #dddddd;
+        border-collapse: separate;
+        border-left: 0;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+      }
+
+      .table-bordered th, .table-bordered  td {
+        padding: 8px;
+        line-height: 20px;
+        text-align: left;
+        vertical-align: top;
+        border-top: 1px solid #dddddd;
+        border-left: 1px solid #dddddd;
+        line-height:1.3em;
+      }
+
+      .table-bordered thead tr:first-child > th {
+        border-top:none;
+      }
+
+      .table-bordered > * th:first-child, .table-bordered td:first-child {
+        border-left: none;
+      }
+    </style>
+  </head>
+  <body>
+    <p style="display:none">Potter ist da!</p>
+    <table width="100%" id="background" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td valign="top">
+         <table width="650" id="main" border="0" cellpadding="0" cellspacing="20">
+           <tr>
+              <td>
+                <h1>Dein Potter „<%= @pot.name %>“</h1>
+                <p>
+                  Hallo <%= @username %>,<br>
+                
+                  <% if @pot.new_members.any? %>
+                  wir haben Zuwachs! <%= @pot.new_members.map(&:name).join(", ") %> <%= @pot.new_members.to_a.count == 1 ? "ist" : "sind" %> heute zum ersten Mal dabei!
+                  <% end %>
+                </p>
+                
+                <p>
+                  Diese Woche haben sich folgende Links angesammelt:
+                </p>
+              </td>
+            </tr>
+            <tr>
+            <tr>
+              <td>
+                <% @links_grouped_by_hottiness.each_pair do |hottiness, links| %>
+
+                  <h2><%= ['Interessant', 'Sollte man gelesen haben', 'Lesebefehl!'][hottiness-1] %></h2>
+                
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Link</th>
+                        <th>von</th>
+                        <th>Kommentar</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% links.each do |link| %>
+                        <tr>
+                          <td><%= link_to link.name, link.url %></td>
+                          <td style="white-space:nowrap;"><%= link.user.name %></td>
+                          <td><%= link.description.present? ? "„#{link.description}“" : '' %></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>
+                  Diese Email wurde natürlich auch an alle anderen Mitglieder geschickt:
+                  <ul>
+                  <% @pot.users.each do |user| %>
+                    <li><%= user.name %></li>
+                  <% end %>
+                  </ul>
+                </p>
+                
+                <p>
+                  Bis nächste Woche!
+                </p>
+              </td>
+          </tr>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
