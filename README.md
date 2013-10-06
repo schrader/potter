@@ -1,6 +1,7 @@
 # Potter
 
 [![Code Climate](https://codeclimate.com/github/cschell/potter.png)](https://codeclimate.com/github/cschell/potter)
+[![Build Status](https://travis-ci.org/cschell/potter.png?branch=master)](https://travis-ci.org/cschell/potter)
 
 [Potter](http://potterapp.de) is a side project where I try to fight the distractions coming from the immediate desire to share everything with people around you, regardless if they want or don't want their inboxes getting cluttered.
 
