@@ -7,7 +7,7 @@ class InvitationsControllerTest < ActionController::TestCase
   
   test "POST #create invites user and redirects to invitation's pot" do
     Pot.stubs(:find).returns(build_stubbed(:pot, id: 42))
-    InvitationNotifier.any_instance.expects(:notify).once
+    InvitationNotifier.any_instance.expects(:send_invitation).once
 
     post :create, {invitation: {email: "mail@example.com"}, pot_id: 42}
     
