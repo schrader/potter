@@ -29,7 +29,7 @@ gem 'jquery-rails'
 gem "jquery-ui-rails"
   
 
-gem 'simple_form', git: 'git://github.com/plataformatec/simple_form.git'
+gem 'simple_form', github: 'plataformatec/simple_form'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
@@ -39,7 +39,7 @@ gem 'simple_form', git: 'git://github.com/plataformatec/simple_form.git'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem 'devise', git: "git@github.com:plataformatec/devise.git", branch: "rails4"
+gem 'devise'
 
 gem 'rails-i18n'
 
