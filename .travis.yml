@@ -1,6 +1,5 @@
 language: ruby
 rvm:
-  - ruby-head
   - 2.0.0
 before_script:
   - cp config/database.yml.sample config/database.yml
