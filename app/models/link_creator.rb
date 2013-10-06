@@ -19,6 +19,6 @@ class LinkCreator < Link
   end
 
   def pot_ids
-    pot_ids = (@pot_ids.to_a + @pots.to_a.map(&:id)).uniq.reject(&:empty?)
+    pot_ids = (@pot_ids.to_a + @pots.to_a.map(&:id)).uniq.reject(&:blank?)
   end
 end
