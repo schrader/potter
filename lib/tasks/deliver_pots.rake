@@ -3,6 +3,7 @@ namespace :pots do
   task deliver_weekly: :environment do
 
     Pot.where(delivery_day: Date.today.strftime("%A").downcase, delivery_hour: Time.now().strftime("%H")).each do |pot|
+      break unless pot.new_links.any?
       pot.users.each do |user|
         PotMailer.weekly(pot, user).deliver
       end
